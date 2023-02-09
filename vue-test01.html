@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <style>
-    .abc {font-size: large; color: brown}
-  </style>
-</head>
-<body>
-  <div id="app">
-    {{ message }} <br>
-    count : {{ count }} <br>
-    <button @click="count++">
-      count +
-    </button> 
-    <br>
-    <button @click="count--">
-      count -
-    </button>
-    <br>
-    <p v-text='test'>테스트</p> 
-    <p v-html='test'>테스트</p>
-    <p>{{ test }}</p>
-
-    <span>
-      이미지 테스트1 <br>
-      <img v-bind:src="imgfile1" alt=""> <br>
-    </span>
-    <span>
-      이미지 테스트2 <br>
-      <img :src="imgfile2" alt="">
-    </span>
-
-    <p :style={color:cValue}>스타일 적용</p>
-    <p :class="tcValue">클래스 적용</p>
-    
-    <input v-model="searchText" />
-    <p>키워드 : {{ searchText }}</p>
-    <p>키워드 길이 : {{ searchText.length }}</p>
-  </div>
-  
-  <script>
-    const { createApp } = Vue
-
-    createApp({
-      data() {
-        return {
-          message: 'Hello Vue!',
-          count: 0,
-          test: '<h1>abc</h1>',
-          imgfile1: 'https://image.aladin.co.kr/img/header/2011/aladin_logo_new.gif', 
-          imgfile2: 'https://w.namu.la/s/b9ac65acf9cb6e59060a7ceed3bea9c8e32f91c032a56d72f705254523edab9b807c586cbcaf94a42fcdbaa5b2a4838ca5a5c4d8e60850a7da4c8f49e0386b8ec2c6b32c49bd853fe001e6eee9546cb762df8dd0bd948b5ab0d37e9afcfbf348',
-          cValue: '#ff0000',
-          tcValue: 'abc',
-          searchText: '입력하세요',
-        }
-      },
-      methods: {
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .abc {
+        font-size: large;
+        color: brown;
       }
-    }).mount('#app')
-  </script>
-</body>
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }} <br />
+      count : {{ count }} <br />
+      <button @click="count++">count +</button>
+      <br />
+      <button @click="count--">count -</button>
+      <br />
+      <p v-text="test">테스트</p>
+      <p v-html="test">테스트</p>
+      <p>{{ test }}</p>
+
+      <span>
+        이미지 테스트1 <br />
+        <img v-bind:src="imgfile1" alt="" /> <br />
+      </span>
+      <span>
+        이미지 테스트2 <br />
+        <img :src="imgfile2" alt="" />
+      </span>
+
+      <p :style="{color:cValue}">스타일 적용</p>
+      <p :class="tcValue">클래스 적용</p>
+
+      <input v-model="searchText" />
+      <p>키워드 : {{ searchText }}</p>
+      <p>키워드 길이 : {{ searchText.length }}</p>
+
+      <p>{{ text }}</p>
+      <button v-on:click="changeMsg1">메시지 변경하기1</button> <br />
+      <button @click="changeMsg2">메시지 변경하기2</button> <br />
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            count: 0,
+            test: "<h1>abc</h1>",
+            imgfile1:
+              "https://image.aladin.co.kr/img/header/2011/aladin_logo_new.gif",
+            imgfile2:
+              "https://w.namu.la/s/b9ac65acf9cb6e59060a7ceed3bea9c8e32f91c032a56d72f705254523edab9b807c586cbcaf94a42fcdbaa5b2a4838ca5a5c4d8e60850a7da4c8f49e0386b8ec2c6b32c49bd853fe001e6eee9546cb762df8dd0bd948b5ab0d37e9afcfbf348",
+            cValue: "#ff0000",
+            tcValue: "abc",
+            searchText: "입력하세요",
+            text: "Text 입니다.",
+          };
+        },
+        methods: {
+          changeMsg1: function () {
+            this.text = "changed message1";
+          },
+          changeMsg2: function () {
+            this.text = "changed message2";
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
 </html>
