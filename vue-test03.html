@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+      <form @submit.prevent="할일추가">
+        <input type="text" v-model="newTodo" />
+        <button>할 일 추가</button>
+      </form>
+
+      <ul>
+        <li v-for="todo in todos" :key="todo.id">
+          {{todo.text}}
+          <button @click="수정(todo)">수정</button>
+          <button @click="삭제(todo)">삭제</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {},
+      }).mount("#app");
+    </script>
+  </body>
+</html>
